@@ -1,0 +1,47 @@
+def round_to_2(x):
+    return round(x, 2)
+
+def correlation_solution(xs, ys):
+    Y=X=verh=kvadratX=kvadratY=0
+    for i in ys:
+        Y+=i
+    for i in xs:
+        X+=i
+    Y/=len(ys)
+    X/=len(xs)
+    for i in range(len(ys)):
+        for j in range(len(xs)):
+            if i==j:
+                verh+=(ys[i]-Y)*(xs[i]-X)
+    for i in xs:
+        kvadratX+=(i-X)**2
+    for i in ys:
+        kvadratY+=(i-Y)**2
+    result=verh/(kvadratX*kvadratY)**0.5
+    return round_to_2(result)
+
+
+def correlation_solution(xs, ys):
+    Y=X=verh=kvadratX=kvadratY=0
+    for i in ys:
+        Y+=i
+    for i in xs:
+        X+=i
+    Y/=len(ys)
+    X/=len(xs)
+    for i in range(len(ys)):
+        for j in range(len(xs)):
+            if i==j:
+                verh+=(ys[i]-Y)*(xs[i]-X)
+    for i in xs:
+        kvadratX+=(i-X)**2
+    for i in ys:
+        kvadratY+=(i-Y)**2
+    result=verh/(kvadratX*kvadratY)**0.5
+    return round_to_2(result)
+
+if __name__ == '__main__':
+    xs = [float(x) for x in input().strip('[]').split(', ')]
+    ys = [float(x) for x in input().strip('[]').split(', ')]
+    
+    print(correlation_solution(xs, ys))
