@@ -1,0 +1,27 @@
+def round_to_2(x):
+    return round(x, 2)
+def linear_regression_solution(ws, vectors):
+    result=[]
+    for i in range(len(vectors)):
+        result.append(0)
+        for j in range(len(ws)):
+            result[i]+=ws[j]*vectors[i][j]
+        result[i]=round_to_2(result[i])
+    return result
+def linear_regression_solution(ws, vectors):
+    result=[]
+    for i in range(len(vectors)):
+        result.append(0)
+        for j in range(len(ws)):
+            result[i]+=ws[j]*vectors[i][j]
+        result[i]=round_to_2(result[i])
+    return result
+if __name__ == '__main__':
+    ws = [float(x) for x in input().strip('[]').split(', ')]
+    
+    vectors = []
+    for line in input().strip('[]').split('], '):
+        vector = [float(x) for x in line.strip('[]').split(', ')]
+        vectors.append(vector)
+    
+    print(linear_regression_solution(ws, vectors))
